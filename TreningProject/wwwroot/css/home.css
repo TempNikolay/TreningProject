@@ -1,0 +1,36 @@
+body {
+	font-family: 'Barlow Condensed', sans-serif;
+	margin-bottom: 60px;
+	margin-top: 80px;
+}
+
+a {
+	text-decoration: none;
+}
+
+.cardBoxShadow {
+	background: rgba(40, 67, 247, 1);
+	height: 150px;
+	border-color: black;
+	color: white;
+}
+
+	.cardBoxShadow:hover {
+		-webkit-box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.75);
+		-moz-box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.75);
+		box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.75);
+		cursor: pointer;
+		color: white;
+	}
+
+.cardBodyStyle {
+	background: rgba(40, 67, 247, 1);
+	border-radius: 45px 45px 0 0 !important;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.card {
+	border-radius: 45px 45px 45px 45px;
+}
+/******************/

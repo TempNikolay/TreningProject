@@ -1,0 +1,63 @@
+﻿@model PaginationModel
+
+<div>
+    <ul class="pagination">
+        <li class="byYears  page-item @(Model.Grouping == Grouping.ByYears ? "active" : "")">
+            <a asp-action="Index" asp-route-grouping="0" class="page-link">По годам</a>
+        </li>
+        <li class="byMonth page-item @(Model.Grouping == Grouping.ByMonths ? "active" : "")">
+            <a asp-action="Index" asp-route-grouping="1" class="page-link">По месяцам</a>
+        </li>
+    </ul>
+    <ul class="pagination pages">
+        @if (Model.Pages != null)
+        {
+            foreach (var number in Model.Pages)
+            {
+                <li class="page-item @(number == Model.CurrentPage ? "active" : "")">
+                    <a asp-action="Index" asp-route-grouping="@Model.Grouping" asp-route-currentPage="@number" class="page-link">@number</a>
+                </li>
+            }
+        }
+    </ul>
+</div>
+<div class="table-scrollbar">
+    <table class="table-fixed text-center table table-striped table-hover table-condensed table-bordered helpdesk-stats_report-table scrollTable">
+        <thead>
+            <tr>
+                <td>Дата, время</td>
+                <td>Температура воздуха</td>
+                <td>Относительная влажность</td>
+                <td>Точка расы</td>
+                <td>Атмосферное давление</td>
+                <td>Направление ветра</td>
+                <td>Скорость ветра</td>
+                <td>Облачность</td>
+                <td>Нижняя граница облачности</td>
+                <td>Горизонтальная видимость</td>
+                <td>Погодное явление</td>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.WeatherConditions != null)
+            {
+                foreach (var item in Model.WeatherConditions)
+                {
+                    <tr>
+                        <td>@item.DateTime</td>
+                        <td>@item.AirTemperature</td>
+                        <td>@item.RelativeHumidity</td>
+                        <td>@item.RacePoint</td>
+                        <td>@item.AtmosphericPressure</td>
+                        <td>@item.WindDirection</td>
+                        <td>@item.WindSpeed</td>
+                        <td>@item.CloudCover</td>
+                        <td>@item.LowerBound</td>
+                        <td>@item.HorizontalVisibility</td>
+                        <td>@item.WeatherPhenomenon</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
